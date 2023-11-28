@@ -10,6 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       title: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       paragraph1: {
@@ -43,6 +44,7 @@ module.exports = {
         type: Sequelize.TEXT,
       },
       poster_img_url: {
+        allowNull: false,
         type: Sequelize.TEXT,
       },
       createdAt: {

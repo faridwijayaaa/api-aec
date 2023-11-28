@@ -10,15 +10,19 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       title: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       description: {
+        allowNull: false,
         type: Sequelize.TEXT,
       },
       start_date: {
+        allowNull: false,
         type: Sequelize.DATE,
       },
       poster_img_url: {
+        allowNull: false,
         type: Sequelize.TEXT,
       },
       img_url1: {
@@ -37,10 +41,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: "Mentors",
-          key: "id"
+          key: "id",
         },
         onUpdate: "CASCADE",
-        onDelete: "CASCADE"
+        onDelete: "CASCADE",
       },
       createdAt: {
         allowNull: false,
