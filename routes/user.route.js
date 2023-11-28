@@ -1,11 +1,12 @@
 const express = require("express");
-const { loginAdmin } = require("../controllers/Admin.controllers");
+const { login, register } = require("../controllers/User.controllers");
 const route = express.Router();
 
 route.get("/", (req, res) => {
   res.json({ msg: "Users Route running" });
 });
 
-route.post("/login", loginAdmin);
+route.post("/register", register);
+route.post("/login", login);
 
 module.exports = route;

@@ -16,16 +16,16 @@ module.exports = {
           key: "id",
         },
         onUpdate: "CASCADE",
-        onDelete: "CASCADE"
+        onDelete: "CASCADE",
       },
       LiveClassId: {
         type: Sequelize.INTEGER,
         references: {
           model: "LiveClasses",
-          key: "id"
+          key: "id",
         },
         onUpdate: "CASCADE",
-        onDelete: "CASCADE"
+        onDelete: "CASCADE",
       },
       createdAt: {
         allowNull: false,
