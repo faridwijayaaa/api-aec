@@ -35,7 +35,9 @@ module.exports = {
 
       const createArticle = await Article.create(data);
 
-      return res.status(201).json({ article: createArticle });
+      return res
+        .status(201)
+        .json({ msg: "successfully create article", data: createArticle });
     } catch (error) {
       let errorMes = error.name;
       if (
