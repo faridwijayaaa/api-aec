@@ -59,4 +59,28 @@ module.exports = {
       return res.status(500).json({ msg: error });
     }
   },
+  authenticationUser: async (req, res, next) => {
+    try {
+      const token = req.headers.authorization;
+      const userDecoded = verifyToken(token);
+
+      const userById = await User.findOne({
+        where: {
+          id: userDecoded.id,
+        },
+      });
+
+      if (!userById) {
+        return res.status(401).json({
+          message: "No Active account found with the given user credentials",
+        });
+      }
+
+      res.dataUser = userById;
+      return next();
+    } catch (error) {
+      console.log("scope err authentication user");
+      return res.status(500).json({ msg: error });
+    }
+  },
 };
