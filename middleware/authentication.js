@@ -1,12 +1,11 @@
 const { verifyToken } = require("../helper/jwt");
-const { Admin } = require("../models");
+const { Admin, User } = require("../models");
 
 module.exports = {
   authenticationAdmin: async (req, res, next) => {
     try {
       const token = req.headers.authorization;
       const adminDecoded = verifyToken(token);
-      console.log(adminDecoded);
 
       const adminById = await Admin.findOne({
         where: {
@@ -16,22 +15,21 @@ module.exports = {
 
       if (!adminById) {
         return res.status(401).json({
-          message: "No Active account found with the given credentials",
+          message: "No Active account found with the given admin credentials",
         });
       }
 
       res.dataAdmin = adminById;
       return next();
     } catch (error) {
-      console.log("scope erorr authentication");
-      return res.status(500).json({ msg: error });
+      console.log("scope erorr authentication admin");
+      return res.status(500).json({ msg: "Login admin for given credentials" });
     }
   },
   authentication: async (req, res, next) => {
     try {
       const token = req.headers.authorization;
       const userDecoded = verifyToken(token);
-      console.log(userDecoded);
 
       const userById = await User.findOne({
         where: {
@@ -39,16 +37,25 @@ module.exports = {
         },
       });
 
-      if (!userById) {
+      const adminById = await Admin.findOne({
+        where: {
+          id: userDecoded.id,
+        },
+      });
+
+      if (adminById) {
+        res.dataUser = adminById;
+      } else if (userById) {
+        res.dataUser = userById;
+      } else {
         return res.status(401).json({
-          message: "No Active account found with the given credentials",
+          message: "No Active account found with the given user credentials",
         });
       }
 
-      res.dataUser = userById;
       return next();
     } catch (error) {
-      console.log("scope err authentication");
+      console.log("scope err authentication user");
       return res.status(500).json({ msg: error });
     }
   },
