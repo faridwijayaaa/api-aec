@@ -1,4 +1,4 @@
-const { LiveClass } = require("../models");
+const { LiveClass, Mentor } = require("../models");
 
 module.exports = {
   createLiveClass: async (req, res) => {
@@ -45,7 +45,14 @@ module.exports = {
   },
   getAllLiveClass: async (req, res) => {
     try {
-      const liveClasses = await LiveClass.findAll();
+      const liveClasses = await LiveClass.findAll({
+        include: [
+          {
+            model: Mentor,
+            attributes: [`name`, "address"],
+          },
+        ],
+      });
       return res.status(200).json({
         msg: "successfully get all live class data",
         data: liveClasses,
@@ -62,6 +69,12 @@ module.exports = {
         where: {
           id: classId,
         },
+        include: [
+          {
+            model: Mentor,
+            attributes: [`name`, "address"],
+          },
+        ],
       });
 
       if (!liveClass) {
