@@ -188,7 +188,6 @@ Response :
 ```json 
 {
     "msg" : "string",
-
 }
 ```
 
@@ -407,10 +406,217 @@ Response :
 ```json 
 {
     "msg" : "string",
-
 }
 ```
 
+
+## Live Class
+## Authentication
+<!-- All API must use this authentication -->
+- others live-class route get using authentication from admin
+
+Request :
+- Header :
+    - Authorization : "your secret token"
+
+### Get Live Classes
+
+Request :
+- Method : GET
+- Endpoint : `/liveClasses`
+- Header :
+    - Accept: application/json
+
+Response :
+
+```json 
+{
+    "msg" : "string",
+    "data" : [
+        {
+            "id" : "integer, unique",
+            "title": "string",
+            "description": "text",
+            "start_date": "date",
+            "poster_img_url": "text",
+            "img_url1": "text",
+            "img_url2": "text",
+            "img_url3": "text",
+            "img_url4": "text",
+            "MentorId": "integer",
+            "createdAt" : "date",
+            "updatedAt" : "date",
+            "Mentor": {
+                "name" : "string",
+                "address" : "text" 
+            }
+        },
+        {
+            "id" : "integer, unique",
+            "title": "string",
+            "description": "text",
+            "start_date": "date",
+            "poster_img_url": "text",
+            "img_url1": "text",
+            "img_url2": "text",
+            "img_url3": "text",
+            "img_url4": "text",
+            "MentorId": "integer",
+            "createdAt" : "date",
+            "updatedAt" : "date",
+            "Mentor": {
+                "name" : "string",
+                "address" : "text" 
+            }
+        }
+    ]
+}
+```
+
+### Get Live Class
+
+Request :
+- Method : GET
+- Endpoint : `/liveClasses/{classId}`
+- Header :
+    - Accept: application/json
+
+Response :
+
+```json 
+{
+    "msg" : "string",
+    "data" : 
+        {
+            "id" : "integer, unique",
+            "title": "string",
+            "description": "text",
+            "start_date": "date",
+            "poster_img_url": "text",
+            "img_url1": "text",
+            "img_url2": "text",
+            "img_url3": "text",
+            "img_url4": "text",
+            "MentorId": "integer",
+            "createdAt" : "date",
+            "updatedAt" : "date",
+            "Mentor": {
+                "name" : "string",
+                "address" : "text" 
+            }
+        }
+}
+```
+
+### Create Live Class
+
+Request :
+- Method : POST
+- Endpoint : `/liveClasses`
+- Header :
+    - Content-Type: application/json
+    - Accept: application/json
+- Body :
+
+```json 
+{
+    "title": "string",
+    "description": "text",
+    "start_date": "date",
+    "poster_img_url": "text",
+    "img_url1": "text",
+    "img_url2": "text",
+    "img_url3": "text",
+    "img_url4": "text",
+    "MentorId": "integer"
+}
+```
+
+Response :
+
+```json 
+{
+    "msg" : "string",
+    "data" : 
+        {
+            "id" : "integer, unique",
+            "title": "string",
+            "description": "text",
+            "start_date": "date",
+            "poster_img_url": "text",
+            "img_url1": "text",
+            "img_url2": "text",
+            "img_url3": "text",
+            "img_url4": "text",
+            "MentorId": "integer",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+}
+```
+
+### Update Live Class
+
+Request :
+- Method : PUT
+- Endpoint : `/liveClasses/{classId}`
+- Header :
+    - Content-Type: application/json
+    - Accept: application/json
+- Body :
+
+```json 
+{
+    "title": "string",
+    "description": "text",
+    "start_date": "date",
+    "poster_img_url": "text",
+    "img_url1": "text",
+    "img_url2": "text",
+    "img_url3": "text",
+    "img_url4": "text",
+    "MentorId": "integer"
+}
+```
+
+Response :
+
+```json 
+{
+    "msg" : "string",
+    "data" : 
+        {
+            "id" : "integer, unique",
+            "title": "string",
+            "description": "text",
+            "start_date": "date",
+            "poster_img_url": "text",
+            "img_url1": "text",
+            "img_url2": "text",
+            "img_url3": "text",
+            "img_url4": "text",
+            "MentorId": "integer",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+}
+```
+
+### Delete Live Class
+
+Request :
+- Method : DELETE
+- Endpoint : `/liveClasses/{classId}`
+- Header :
+    - Accept: application/json
+
+Response :
+
+```json 
+{
+    "msg" : "string",
+}
+```
 
 ## Mentors
 ## Authentication
@@ -556,6 +762,5 @@ Response :
 ```json 
 {
     "msg" : "string",
-
 }
 ```
