@@ -79,16 +79,16 @@ Response :
     "data" : [
         {
             "id" : "integer, unique",
-            "email" : "string",
-            "username" : "string",
+            "email" : "string, unique",
+            "username" : "string, unique",
             "password" : "string",
             "createdAt" : "date",
             "updatedAt" : "date"
         },
         {
             "id" : "integer, unique",
-            "email" : "string",
-            "username" : "string",
+            "email" : "string, unique",
+            "username" : "string, unique",
             "password" : "string",
             "createdAt" : "date",
             "updatedAt" : "date"
@@ -112,8 +112,8 @@ Response :
     "msg" : "string",
     "data" : {
         "id" : "integer, unique",
-        "email" : "string",
-        "username" : "string",
+        "email" : "string, unique",
+        "username" : "string, unique",
         "password" : "string",
         "createdAt" : "date",
         "updatedAt" : "date"
@@ -180,6 +180,225 @@ Response :
 Request :
 - Method : DELETE
 - Endpoint : `/users/{userId}`
+- Header :
+    - Accept: application/json
+
+Response :
+
+```json 
+{
+    "msg" : "string",
+
+}
+```
+
+
+## Article
+## Authentication
+<!-- All API must use this authentication -->
+- others article route get using authentication for login admin
+
+Request :
+- Header :
+    - Authorization : "your secret token"
+
+### Get Articles
+
+Request :
+- Method : GET
+- Endpoint : `/articles`
+- Header :
+    - Accept: application/json
+
+Response :
+
+```json 
+{
+    "msg" : "string",
+    "data" : [
+        {
+            "id" : "integer, unique",
+            "title": "string",
+            "paragraph1": "text",
+            "paragraph2": "text",
+            "paragraph3": "text",
+            "paragraph4": "text",
+            "paragraph5": "text",
+            "paragraph6": "text",
+            "paragraph7": "text",
+            "paragraph8": "text",
+            "paragraph9": "text",
+            "paragraph10": "text",
+            "poster_img_url": "text",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        },
+        {
+            "id" : "integer, unique",
+            "title": "string",
+            "paragraph1": "text",
+            "paragraph2": "text",
+            "paragraph3": "text",
+            "paragraph4": "text",
+            "paragraph5": "text",
+            "paragraph6": "text",
+            "paragraph7": "text",
+            "paragraph8": "text",
+            "paragraph9": "text",
+            "paragraph10": "text",
+            "poster_img_url": "text",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+    ]
+}
+```
+
+### Get Article
+
+Request :
+- Method : GET
+- Endpoint : `/articles/{articleId}`
+- Header :
+    - Accept: application/json
+
+Response :
+
+```json 
+{
+    "msg" : "string",
+    "data" : 
+        {
+            "id" : "integer, unique",
+            "title": "string",
+            "paragraph1": "text",
+            "paragraph2": "text",
+            "paragraph3": "text",
+            "paragraph4": "text",
+            "paragraph5": "text",
+            "paragraph6": "text",
+            "paragraph7": "text",
+            "paragraph8": "text",
+            "paragraph9": "text",
+            "paragraph10": "text",
+            "poster_img_url": "text",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+}
+```
+
+### Create Article
+
+Request :
+- Method : POST
+- Endpoint : `/articles`
+- Header :
+    - Content-Type: application/json
+    - Accept: application/json
+- Body :
+
+```json 
+{
+    "title": "string",
+    "paragraph1": "text",
+    "paragraph2": "text",
+    "paragraph3": "text",
+    "paragraph4": "text",
+    "paragraph5": "text",
+    "paragraph6": "text",
+    "paragraph7": "text",
+    "paragraph8": "text",
+    "paragraph9": "text",
+    "paragraph10": "text",
+    "poster_img_url": "text",
+}
+```
+
+Response :
+
+```json 
+{
+    "msg" : "string",
+    "data" : 
+        {
+            "id" : "integer, unique",
+            "title": "string",
+            "paragraph1": "text",
+            "paragraph2": "text",
+            "paragraph3": "text",
+            "paragraph4": "text",
+            "paragraph5": "text",
+            "paragraph6": "text",
+            "paragraph7": "text",
+            "paragraph8": "text",
+            "paragraph9": "text",
+            "paragraph10": "text",
+            "poster_img_url": "text",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+}
+```
+
+### Update Article
+
+Request :
+- Method : PUT
+- Endpoint : `/articles/{articleId}`
+- Header :
+    - Content-Type: application/json
+    - Accept: application/json
+- Body :
+
+```json 
+{
+    "title": "string",
+    "paragraph1": "text",
+    "paragraph2": "text",
+    "paragraph3": "text",
+    "paragraph4": "text",
+    "paragraph5": "text",
+    "paragraph6": "text",
+    "paragraph7": "text",
+    "paragraph8": "text",
+    "paragraph9": "text",
+    "paragraph10": "text",
+    "poster_img_url": "text",
+}
+```
+
+Response :
+
+```json 
+{
+    "msg" : "string",
+    "data" : 
+        {
+            "id" : "integer, unique",
+            "title": "string",
+            "paragraph1": "text",
+            "paragraph2": "text",
+            "paragraph3": "text",
+            "paragraph4": "text",
+            "paragraph5": "text",
+            "paragraph6": "text",
+            "paragraph7": "text",
+            "paragraph8": "text",
+            "paragraph9": "text",
+            "paragraph10": "text",
+            "poster_img_url": "text",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+}
+```
+
+### Delete Article
+
+Request :
+- Method : DELETE
+- Endpoint : `/articles/{articleId}`
 - Header :
     - Accept: application/json
 
