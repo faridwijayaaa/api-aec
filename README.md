@@ -193,10 +193,10 @@ Response :
 ```
 
 
-## Article
+## Articles
 ## Authentication
 <!-- All API must use this authentication -->
-- others article route get using authentication for login admin
+- others article route get using authentication from admin
 
 Request :
 - Header :
@@ -399,6 +399,155 @@ Response :
 Request :
 - Method : DELETE
 - Endpoint : `/articles/{articleId}`
+- Header :
+    - Accept: application/json
+
+Response :
+
+```json 
+{
+    "msg" : "string",
+
+}
+```
+
+
+## Mentors
+## Authentication
+<!-- All API must use this authentication -->
+- others mentor route get using authentication from admin
+
+Request :
+- Header :
+    - Authorization : "your secret token"
+
+### Get Mentors
+
+Request :
+- Method : GET
+- Endpoint : `/mentors`
+- Header :
+    - Accept: application/json
+
+Response :
+
+```json 
+{
+    "msg" : "string",
+    "data" : [
+        {
+            "id" : "integer, unique",
+            "name": "string",
+            "address": "text",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        },
+        {
+            "id" : "integer, unique",
+            "name": "string",
+            "address": "text",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+    ]
+}
+```
+
+### Get Mentor
+
+Request :
+- Method : GET
+- Endpoint : `/mentors/{mentorId}`
+- Header :
+    - Accept: application/json
+
+Response :
+
+```json 
+{
+    "msg" : "string",
+    "data" : 
+        {
+            "id" : "integer, unique",
+            "name": "string",
+            "address": "text",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+}
+```
+
+### Create Mentor
+
+Request :
+- Method : POST
+- Endpoint : `/mentors`
+- Header :
+    - Content-Type: application/json
+    - Accept: application/json
+- Body :
+
+```json 
+{
+    "name": "string",
+    "address": "text"
+}
+```
+
+Response :
+
+```json 
+{
+    "msg" : "string",
+    "data" : 
+        {
+            "id" : "integer, unique",
+            "name": "string",
+            "address": "text",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+}
+```
+
+### Update Mentor
+
+Request :
+- Method : PUT
+- Endpoint : `/mentors/{mentorId}`
+- Header :
+    - Content-Type: application/json
+    - Accept: application/json
+- Body :
+
+```json 
+{
+    "name": "string",
+    "address": "text"
+}
+```
+
+Response :
+
+```json 
+{
+    "msg" : "string",
+    "data" : 
+        {
+            "id" : "integer, unique",
+            "name": "string",
+            "address": "text",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+}
+```
+
+### Delete Mentor
+
+Request :
+- Method : DELETE
+- Endpoint : `/mentors/{articleId}`
 - Header :
     - Accept: application/json
 
