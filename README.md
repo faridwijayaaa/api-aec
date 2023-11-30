@@ -753,7 +753,7 @@ Response :
 
 Request :
 - Method : DELETE
-- Endpoint : `/mentors/{articleId}`
+- Endpoint : `/mentors/{mentorId}`
 - Header :
     - Accept: application/json
 
